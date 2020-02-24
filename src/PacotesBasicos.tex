@@ -1,0 +1,213 @@
+% ----------------------------------------------------------
+% Pacotes básicos 
+% ----------------------------------------------------------
+\usepackage{amsmath}							% Pacote matemático
+\usepackage{amssymb}							% Pacote matemático
+\usepackage{amsfonts}							% Pacote matemático
+\usepackage{lmodern}							% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}						% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}						% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}							% Usado pela Ficha catalográfica
+\usepackage{indentfirst}						% Indenta o primeiro parágrafo de cada seção.
+\usepackage[dvipsnames,table]{xcolor}			% Controle das cores
+\usepackage{graphicx}							% Inclusão de gráficos
+\usepackage{microtype} 							% para melhorias de justificação
+\usepackage{lipsum}								% para geração de dummy text
+\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}					% Citações padrão ABNT
+%\usepackage[num]{abntex2cite}					% Citações padrão ABNT numérica
+\usepackage{adjustbox}							% Pacote de ajuste de boxes
+\usepackage{subcaption}							% Inclusão de Subfiguras e sublegendas		
+\usepackage{enumitem}							% Personalização de listas
+\usepackage{siunitx}							% Grandezas e unidades
+\usepackage[section]{placeins}					% Manter as figuras delimitadas na respectiva seção com a opção [section]
+\usepackage{multirow}							% Multi colunas nas tabelas
+\usepackage{array,tabularx} 					% Pacotes de tabelas
+\usepackage{booktabs}							% Pacote de tabela profissonal
+\usepackage{rotating}							% Rotacionar figuras e tabelas
+\usepackage{xfrac}								% Fazer frações n/d em linha
+\usepackage{bm}									% Negrito em modo matemático
+\usepackage{xstring}							% Manipulação de strings
+\usepackage{pgfplots}							% Pacote de Gráficos
+\usepackage{tikz}								% Pacote de Figuras
+\usepackage[american, cuteinductors,smartlabels, fulldiode, siunitx, americanvoltages, oldvoltagedirection, smartlabels]{circuitikz}						% Pacote de circuitos elétricos
+
+% Personalização das opções das listas
+\setlist[itemize]{leftmargin=\parindent}
+
+% Citação online --- MODIFICAR ---
+\newcommand{\citeshort}[1]{\citeauthoronline{#1}~(\citeyear{#1})}
+
+\newcommand{\me}[1]{Elaborado pelo autor, #1.}
+
+% Configuração do pgfplots
+\pgfplotsset{compat=newest} %compat=1.14
+\pgfplotsset{plot coordinates/math parser=false} 
+\newlength\figureheight 
+\newlength\figurewidth 
+
+% Libraries do TiKz
+\usetikzlibrary{quotes,angles,arrows}
+\usetikzlibrary{through,calc,math}
+\usetikzlibrary{graphs,backgrounds,fit}
+\usetikzlibrary{shapes,positioning,patterns,shadows}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{external}
+
+%\tikzexternalize[]
+%\tikzexternalenable
+%\tikzexternalize
+%\tikzexternaldisable
+%\tikzset{external/force remake}
+%\tikzexternalize[shell escape=-enable-write18]
+
+% Configurações do CircuiTiKz
+\ctikzset{bipoles/thickness=1}
+%\ctikzset{bipoles/length=1.2cm}
+\ctikzset{monopoles/ground/width/.initial=.2}
+\ctikzset{bipoles/resistor/height=0.25}
+\ctikzset{bipoles/resistor/width=0.6}
+\ctikzset{bipoles/capacitor/height=0.5}
+\ctikzset{bipoles/capacitor/width=0.15}
+\ctikzset{bipoles/generic/height=0.25}
+\ctikzset{bipoles/generic/width=0.6}
+%\ctikzset{bipoles/capacitor polar/length=0.5}
+%\ctikzset{bipoles/diode/height=.375}
+%\ctikzset{bipoles/diode/width=.3}
+%\ctikzset{tripoles/thyristor/height=.8}
+%\ctikzset{tripoles/thyristor/width=1}
+\ctikzset{bipoles/vsourcesin/height=.5}
+\ctikzset{bipoles/vsourcesin/width=.5}
+\ctikzset{bipoles/cvsourceam/height=.6}
+\ctikzset{bipoles/cvsourceam/width=.6}
+%\ctikzset{tripoles/european controlled voltage source/width=.4}
+
+\tikzstyle{every node}=[font=\footnotesize]
+\tikzstyle{every path}=[line width=0.25pt,line cap=round,line join=round]
+%\tikzstyle{every path}=[line cap=round,line join=round]
+
+
+% Definição de cores MATLAB
+\definecolor{matlab_blue}{rgb}	{         0,    0.4470,    0.7410}
+\definecolor{matlab_orange}{rgb}{    0.8500,    0.3250,    0.0980}
+\definecolor{matlab_yellow}{rgb}{    0.9290,    0.6940,    0.1250}
+\definecolor{matlab_violet}{rgb}{    0.4940,    0.1840,    0.5560}
+\definecolor{matlab_green}{rgb}	{	 0.4660,    0.6740,    0.1880}
+\definecolor{matlab_lblue}{rgb}	{    0.3010,    0.7450,    0.9330}
+\definecolor{matlab_red}{rgb}	{    0.6350,    0.0780,    0.1840}
+
+% Personalização das legendas
+\usepackage[format = hang,
+			labelsep = endash,
+			singlelinecheck = false,
+			skip = 6pt,
+			listformat = simple]{caption}	
+
+% Personalização das unidades
+\sisetup{output-decimal-marker = {,}}
+\sisetup{exponent-product = \cdot, output-product = \cdot}
+\sisetup{tight-spacing=true}
+\sisetup{group-digits = false}
+
+% Personalizações de tipo de colunas de tabelas
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Personalizações de cores da UDESC
+\definecolor{CapaAmareloUDESC}{RGB}{243,186,83}		% Especializacao
+\definecolor{CapaVerdeUDESC}{RGB}{0,112,52}			% Mestrado
+\definecolor{CapaVermelhoUDESC}{RGB}{171,35,21}		% Doutorado
+\definecolor{CapaAzulUDESC}{RGB}{38,54,118} 		% Pós-Doutorado
+
+% CONFIGURAÇÕES DE PACOTES
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+	Nenhuma citação no texto.%
+	\or
+	Citado na página #2.%
+	\else
+	Citado #1 vezes nas páginas #2.%
+	\fi}%
+
+% alterando o aspecto da cor azul
+%\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+	%pagebackref=true,
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho academico}, 
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=black,          	% color of internal links
+	citecolor=black,        	% color of links to bibliography
+	filecolor=black,      		% color of file links
+	urlcolor=black,
+	bookmarksdepth=4
+}
+\makeatother
+
+
+\makeatletter
+\newcommand{\includetikz}[1]{%
+	\tikzsetnextfilename{#1}%
+	\input{#1.tex}%
+}
+\makeatother
+
+% Espaçamento depois do título
+\setlength{\afterchapskip}{0.7\baselineskip}
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.15cm}  % tente também \onelineskip
+%\SingleSpacing % Espaçamento simples 
+\OnehalfSpacing % Espaçamento 1,5 (UDESC/CCT)
+%\DoubleSpacing	% Espaçamento duplo
+
+% ---
+% Margens - NBR 14724/2011 - 5.1 Formato
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout[fixed]
+% ---
+
+
+% To use externalize consider
+%https://tex.stackexchange.com/questions/182783/tikzexternalize-not-compatible-with-miktex-2-9-abntex2-package
+%Lauro Cesar digged into the problem until he came with a solution for me to test. And it Works!
+%
+%According to this link:
+%
+%The package calc changed the commands \setcounter and friends to be fragile. So you have to make them robust. The example below uses etoolbox with \robustify:
+%
+\usepackage{etoolbox}
+\robustify\setcounter
+\robustify\addtocounter
+\robustify\setlength
+\robustify\addtolength
+
+
+%% How to silence memoir class warning against the use of caption package?
+%% https://tex.stackexchange.com/questions/391993/how-to-silence-memoir-class-warning-against-the-use-of-caption-package
+%\usepackage{silence}
+%\WarningFilter*{memoir}{You are using the caption package with the memoir class}
+%\WarningFilter*{Class memoir Warning}{You are using the caption package with the memoir class}
+
+
+
+
+

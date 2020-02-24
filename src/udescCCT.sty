@@ -1,0 +1,429 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para UDESC/CCT
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is FELIPE JOEL ZIMANN, felipezimann@hotmail.com
+%%
+%% Further information about abnTeX2 are available on https://github.com/abntex/abntex2
+%%
+
+% --------------------------------------------------------
+% INICIO DAS CUSTOMIZACOES PARA A UDESC
+% --------------------------------------------------------
+
+\ProvidesPackage{udescCCT}[2018/06/22]
+
+
+
+% --------------------------------------------------------
+% Capa Padrão
+% --------------------------------------------------------
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    
+	{\MakeTextUppercase{\ABNTEXchapterfont\large\bfseries\imprimirautor}}
+
+    \vfill
+    \begin{center}
+    {\MakeTextUppercase{\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}}
+    \end{center}
+    \vfill
+    
+	{\large\bfseries\imprimirlocal}
+	\par
+	{\large\bfseries\imprimirdata}
+	\vspace*{1cm}
+  \end{capa}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Tese
+% --------------------------------------------------------
+
+%	\linethickness{0.75pt}	\line(0,1){25} 
+\newcommand{\imprimircapaTese}{%
+  \begin{capa}%
+	\setlrmarginsandblock{1cm}{*}{*}
+	\setulmarginsandblock{1.5cm}{*}{*}
+	\checkandfixthelayout
+	\flushleft %
+	{\begin{minipage}[c]{\textwidth} 
+	\setlength{\parskip}{0cm}
+	\includegraphics[trim={5.7cm 5cm 5.7cm 5cm},clip,width=3.16cm]{logo_udesc.pdf} \par
+	\SingleSpacing\sffamily\large\bfseries
+	UNIVERSIDADE DO ESTADO DE SANTA CATARINA -- UDESC \par
+	CENTRO DE CI\^ENCIAS TECNOL\'OGICAS -- CCT \par
+	PROGRAMA DE P\'OS--GRADUA\c{C}\~AO EM ENGENHARIA EL\'ETRICA -- PPGEEL \par
+	\end{minipage}}
+	
+
+    \vspace*{\fill}
+    {\begin{minipage}[c]{20cm} 
+	\flushright
+	\fcolorbox{CapaVermelhoUDESC}{CapaVermelhoUDESC}{
+	\begin{minipage}{0.6\textwidth} 
+	\vspace{0.5cm}
+	\color{white} 
+	\begin{tabular}{ c | m{11cm} } 
+				  & \sffamily TESE DE DOUTORADO  \\[12pt] 
+				  & \flushleft{\MakeTextUppercase{\Large\bfseries\sffamily\imprimirtitulo}}   
+	\end{tabular}	
+	\vspace{0.5cm}
+	\end{minipage}
+	}
+	\end{minipage}}
+	\flushright
+
+	\vspace*{\fill}
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\large\sffamily\imprimirautor}}
+	\end{minipage}}
+
+	\vspace*{\fill}
+		
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\sffamily\imprimirlocal, \imprimirdata}}
+	\end{minipage}}	
+	
+	
+  \end{capa}
+}
+
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Dissertação
+% --------------------------------------------------------
+
+%	\linethickness{0.75pt}	\line(0,1){25} 
+\newcommand{\imprimircapaDissertacao}{%
+  \begin{capa}%
+	\setlrmarginsandblock{1cm}{*}{*}
+	\setulmarginsandblock{1.5cm}{*}{*}
+	\checkandfixthelayout
+    \flushleft %
+	{\begin{minipage}[c]{19.25cm} \setlength{\parskip}{0cm}
+	\includegraphics[trim={5.7cm 5cm 5.7cm 5cm},clip,width=3.16cm]{logo_udesc.pdf} \par
+	\SingleSpacing\sffamily\large\bfseries
+	UNIVERSIDADE DO ESTADO DE SANTA CATARINA -- UDESC \par
+	CENTRO DE CI\^ENCIAS TECNOL\'OGICAS -- CCT \par
+	PROGRAMA DE P\'OS--GRADUA\c{C}\~AO EM ENGENHARIA EL\'ETRICA -- PPGEEL \par
+	\end{minipage}}
+	
+
+    \vspace*{\fill}
+    {\begin{minipage}[c]{20cm} 
+	\flushright
+	\fcolorbox{CapaVerdeUDESC}{CapaVerdeUDESC}{
+	\begin{minipage}{0.6\textwidth} 
+	\vspace{0.5cm}
+	\color{white} 
+	\begin{tabular}{ c | m{11cm} } 
+				  & \sffamily DISSERTA\c{C}\~AO DE MESTRADO \\[12pt] 
+				  & \flushleft{\MakeTextUppercase{\Large\bfseries\sffamily\imprimirtitulo}} 
+	\end{tabular}	
+	\vspace{0.5cm}
+	\end{minipage}
+	}
+	\end{minipage}}
+	\flushright
+
+		
+	\vspace*{\fill}
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\large\sffamily\imprimirautor}}
+	\end{minipage}}
+
+	\vspace*{\fill}
+		
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\sffamily\imprimirlocal, \imprimirdata}}
+	\end{minipage}}	
+	
+	
+  \end{capa}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - TCC
+% --------------------------------------------------------
+
+%	\linethickness{0.75pt}	\line(0,1){25} 
+\newcommand{\imprimircapaTCC}{%
+  \begin{capa}%
+	\setlrmarginsandblock{1cm}{*}{*}
+	\setulmarginsandblock{1.5cm}{*}{*}
+	\checkandfixthelayout
+    \flushleft %
+	{\begin{minipage}[c]{\textwidth} \setlength{\parskip}{0cm}
+	\includegraphics[trim={5.7cm 5cm 5.7cm 5cm},clip,width=3.16cm]{logo_udesc.pdf} \par
+	\SingleSpacing\sffamily\large\bfseries
+	UNIVERSIDADE DO ESTADO DE SANTA CATARINA -- UDESC \par
+	CENTRO DE CI\^ENCIAS TECNOL\'OGICAS -- CCT \par
+	DEPARTAMENTO DE ENGENHARIA EL\'ETRICA -- DEE \par
+	\end{minipage}}
+	
+
+    \vspace*{\fill}
+    {\begin{minipage}[c]{20cm} 
+	\flushright
+	\fcolorbox{CapaAmareloUDESC}{CapaAmareloUDESC}{
+	\begin{minipage}{0.6\textwidth} 
+	\vspace{0.5cm}
+	\color{white} 
+	\begin{tabular}{ c | m{11cm} } 
+				  & \sffamily TRABALHO DE CONCLUS\~AO DE CURSO \\[12pt] 
+				  & \flushleft{\MakeTextUppercase{\Large\bfseries\sffamily\imprimirtitulo}}
+	\end{tabular}	
+	\vspace{0.5cm}
+	\end{minipage}
+	}
+	\end{minipage}}
+	\flushright
+
+		
+	\vspace*{\fill}
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\large\sffamily\imprimirautor}}
+	\end{minipage}}
+
+	\vspace*{\fill}
+		
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\sffamily\imprimirlocal, \imprimirdata}}
+	\end{minipage}}	
+	
+	
+  \end{capa}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Pós-Doc
+% --------------------------------------------------------
+
+%	\linethickness{0.75pt}	\line(0,1){25} 
+\newcommand{\imprimircapaPosDoc}{%
+  \begin{capa}%
+	\setlrmarginsandblock{1cm}{*}{*}
+	\setulmarginsandblock{1.5cm}{*}{*}
+	\checkandfixthelayout
+    \flushleft %
+	{\begin{minipage}[c]{\textwidth} \setlength{\parskip}{0cm}
+	\includegraphics[trim={5.7cm 5cm 5.7cm 5cm},clip,width=3.16cm]{logo_udesc.pdf} \par
+	\SingleSpacing\sffamily\large\bfseries
+	UNIVERSIDADE DO ESTADO DE SANTA CATARINA -- UDESC \par
+	CENTRO DE CI\^ENCIAS TECNOL\'OGICAS -- CCT \par
+	PROGRAMA DE P\'OS--GRADUA\c{C}\~AO EM ENGENHARIA EL\'ETRICA -- PPGEEL \par
+	\end{minipage}}
+	
+
+    \vspace*{\fill}
+    {\begin{minipage}[c]{20cm} 
+	\flushright
+	\fcolorbox{CapaAzulUDESC}{CapaAzulUDESC}{
+	\begin{minipage}{0.6\textwidth} 
+	\vspace{0.5cm}
+	\color{white} 
+	\begin{tabular}{ c | m{11cm} } 
+				  & \sffamily RELAT\'ORIO DE P\'OS--DOUTORADO \\[12pt] 
+				  & \flushleft{\MakeTextUppercase{\Large\bfseries\sffamily\imprimirtitulo}}  
+	\end{tabular}	
+	\vspace{0.5cm}
+	\end{minipage}
+	}
+	\end{minipage}}
+	\flushright
+
+		
+	\vspace*{\fill}
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\large\sffamily\imprimirautor}}
+	\end{minipage}}
+
+	\vspace*{\fill}
+		
+	{\begin{minipage}[c]{\textwidth}
+	\center
+	{\MakeTextUppercase{\sffamily\imprimirlocal, \imprimirdata}}
+	\end{minipage}}	
+	
+	
+  \end{capa}
+}
+
+
+% --------------------------------------------------------
+% folha de rosto 
+% --------------------------------------------------------
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+    
+{\MakeTextUppercase{\ABNTEXchapterfont\large\imprimirautor}}
+
+\vspace*{\fill}\vspace*{\fill}
+
+{\MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}}
+
+\vspace*{\fill}
+
+\abntex@ifnotempty{\imprimirpreambulo}{%
+  \hspace{.45\textwidth}
+  {\begin{minipage}{.5\textwidth}
+  	\SingleSpacing
+  	\imprimirpreambulo\par
+  	\vspace*{8pt}
+  	{\imprimirorientadorRotulo~\imprimirorientador\par}
+  	\abntex@ifnotempty{\imprimircoorientador}{%
+  	{\imprimircoorientadorRotulo~\imprimircoorientador}%
+	}%
+  \end{minipage}}%
+}%
+\vspace*{\fill}\vspace*{\fill}
+
+{\large\bfseries\imprimirlocal}
+\par
+{\large\bfseries\imprimirdata}
+\vspace*{2cm}
+\end{center}
+}
+
+
+
+% --------------------------------------------------------
+% Fontes padroes de part, chapter, section, subsection e subsubsection
+% --------------------------------------------------------
+% --- Chapter ---
+\renewcommand{\ABNTEXchapterfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+% --- Part ---
+\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXpartfontsize}{\LARGE}
+% --- Section ---
+\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+% --- SubSection ---
+\renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+% --- SubSubSection ---
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+% ---
+
+% --------------------------------------------------------
+% Fontes das entradas do sumario
+% --------------------------------------------------------
+
+\renewcommand{\cftpartfont}{\ABNTEXpartfont\selectfont}
+\renewcommand{\cftpartpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftchapterfont}{\ABNTEXchapterfont\selectfont}
+\renewcommand{\cftchapterpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsectionfont}{\ABNTEXsectionfont\selectfont}
+\renewcommand{\cftsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont\selectfont}
+\renewcommand{\cftsubsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsubsubsectionfont}{\normalfont\itshape\selectfont}
+\renewcommand{\cftsubsubsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftparagraphfont}{\normalfont\selectfont}
+\renewcommand{\cftparagraphpagefont}{\normalsize\selectfont}
+
+% --------------------------------------------------------
+% Usando os pacotes hyperref, uppercase... 
+% Para deixar a section do toc uppercase precisa de:
+% --------------------------------------------------------
+\usepackage{textcase}
+
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+  \expandafter\ifx\csname l@#1\endcsname\l@section
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {%
+    \oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+  }{%
+    \oldcontentsline{#1}{#2}%
+  }%
+}
+
+
+% --------------------------------------------------------
+% Renomenando as entradas de APÊNDICES E ANEXOS
+% --------------------------------------------------------
+
+\renewcommand{\apendicesname}{AP\^ENDICES}
+\renewcommand{\anexosname}{ANEXOS}
+
+
+% Manipulação de Strings
+\RequirePackage{xstring}
+
+% Comando para inverter sobrenome e nome
+\newcommand{\invertname}[1]{%
+  \StrBehind{#1}{{}}, \StrBefore{#1}{{}}%
+}
+
+
+% --------------------------------------------------------
+% Alterando os estilos de Caption e Fonte
+% --------------------------------------------------------
+
+% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+\renewcommand{\fonte}[2][\fontename]{%
+  \M@gettitle{#2}%
+  \memlegendinfo{#2}%
+  \par
+  \begingroup
+     \@parboxrestore
+     \if@minipage
+       \@setminipage
+     \fi
+     \ABNTEXfontereduzida
+     \configureseparator
+     \captiondelim{\ABNTEXcaptionfontedelim}
+     \@makecaption{#1}{\ignorespaces #2}\par
+  \endgroup}
+
+
+\captionstyle[\raggedright]{\raggedright}
+
+\makeatother
+
+
+
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A  Universidade do Estado de Santa Catarina - UDESC/CCT
+% ---
+
+
+
+
+
