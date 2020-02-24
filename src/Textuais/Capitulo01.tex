@@ -1,265 +1,142 @@
+﻿\chapter{Conceitos Preliminares}
+\label{cap:conceitos_preliminares}
 
-%\chapter{Introdução}
+\section{Algoritmos Genéticos}
 
+Na década de 1960 John Holland inventou os Algoritmos Genéticos (AG) e os desenvolveu nos anos de 1960 e 1970 juntamente com seus alunos e colegas da Universidade de Michigan. E foi em 1975 através do lançamento de seu livro "Adaptation in Natural and Artificial Systems(1), que Holland apresentou os AGs à comunidade (5). Para Melanie (5), o objetivo original de Holland não era projetar algoritmos para resolver problemas específicos, mas sim estudar o fenômeno da evolução como ocorre na natureza, e desenvolver maneiras para que os mecanismos de adaptação natural pudessem ser importados para os sistemas computacionais.
 
-\chapter{Apresentação Gráfica}
+Segundo \cite{linden12}, os algoritmos genéticos desenvolvidos inicialmente por Holland eram simples, mas conseguiam resultados satisfatórios para problemas considerados difíceis naquela época. Foi a partir de 1980 que os AGs começaram a evoluir, através da introdução de novas inovações e mecanismos cada vez mais elaborados, que tinham a intenção e necessidade de resolver, mesmo que aproximadamente, problemas práticos.
 
-É apresentado um resumo das normas para trabalhos acadêmicos da UDESC.
-
-\section{Margens}
-
-As margens devem seguir os seguintes padrões:
-
+Os AGs utilizam muitas terminologias análogas às biológicas, porém suas entidades são muito mais simples do que as reais da biologia \cite{goldberg02}.
 \begin{itemize}
-\item Superior: 3,0 cm
-\item Inferior: 2,0 cm
-\item Interna: 3,0 cm
-\item Externa: 2,0 cm
+\item Cromossomo:é a estrutura de dados que codifica uma solução para um problema, podendo ser uma cadeia de bits, ou um vetor com as variáveis de decisão do problema;
+
+\item Indivíduo: é um membro da população, formado pelo cromossomo e sua aptidão;
+
+\item População: é o conjunto de indivíduos de uma mesma espécie, e representa um conjunto de pontos candidatos a solução do problema;
+
+\item Gene:para a biologia é a entidade de hereditariedade que é transmitida pelo cromossomo e que contém as características do organismo. Analogamente para os AGs é o parâmetro codificado no cromossomo;
+
+\item Alelo: para a biologia representa uma das características alternativas de um gene. Para os AGs, representa os valores que um gene pode assumir;
+
+\item Genótipo:para a biologia representa a composição genética, ou seja, o conjunto de genes de um indivíduo. Assim, nos AGs são representados pelas informações contidas no cromossomo;
+
+\item Fenótipo:é o cromossomo decodificado, ou seja, é o organismo que pode ser construído a partir das informações do genótipo.Segundo \cite{linden12}, todos os AGs desenvolvidos para um determinado problema devem ter os seguintes elementos em comum:
+\begin{itemize}
+	\item 1. uma representação, em termo de cromossomo, para as soluções candidatas a resolução do problema;
+	\item 2. uma maneira de se criar a população inicial;
+	\item 3. uma função de avaliação, que permite ordenar ou classificar os cromossomos de acordo com a função objetivo;
+	\item 4. operadores genéticos, que permitam alterar a composição dos novos cromossomos gerados pelos pais, durante a reprodução;
+	\item 5. e valores para os parâmetros que os AGs usam: tamanho da população, taxa de crossover e taxa de mutação.
+\end{itemize}
 \end{itemize}
 
-Parágrafo: a 1,25 cm da margem esquerda.
+	
 
-\section{Formatação do Papel e Fonte}
+Em geral os AG também devem seguir um conjunto de passos, indicados na Figura adaptado de \cite{kondageski08}, onde cada ciclo completo, desde a avaliação de aptidão dos indivíduos, até a aplicação do operador de mutação, é considerado uma nova população. No decorrer do capítulo descreveremos com mais detalhes cada passo.
 
-Papel branco, formato A4 (\SI{21}{cm} $\times$ \SI{29,7}{cm}), gramatura 75 com texto em cor preta 
-
-\textbf{Elementos pré-textuais}: iniciar no anverso da página, com exceção da ficha catalográfica que deve vir no verso da folha de rosto.
-
-Os elementos textuais e pós-textuais devem ser digitados no anverso e verso das páginas, com exceção das páginas que derem início as seções primárias, que devem ser no anverso das páginas.
-
-
-\textbf{Formato}: Arial ou Times New Roman.
-
-\textbf{Tamanho 12}: elementos pré-textuais, textuais e pós-textuais
-
-\textbf{Tamanho 10}: citações longas, notas de rodapé, legendas das ilustrações, tabelas e paginação.
-
-Obs.: A fonte tamanho 12 pt deve ser usada em todo o trabalho, inclusive títulos das seções e
-subseções.
-
-\section{ESPAÇAMENTO E PARÁGRAFOS}
-
-O texto do corpo do trabalho deve ser \textbf{alinhado à esquerda e à direita (justificado)}, digitado
-em \textbf{espaço de 1,5 linha}, em \textbf{fonte tamanho 12 }(com exceção das referências e citações, tratados adiante), incluindo apêndices e anexos
-
-Citações longas devem ter um recuo de 4,0 cm da margem esquerda, espaço simples e fonte
-em tamanho 10.
-
-Notas de rodapé, legendas e fontes de ilustrações e tabelas devem ser apresentadas em
-espaço simples (1,0 linha), em fonte tamanho 10.
-
-As referências no final do trabalho devem ser alinhadas somente à margem esquerda,
-separadas uma das outras por espaço duplo; entre as linhas da mesma referência deve ser usado
-espaço simples.
-
-Os títulos principais (seção primária) devem ser separados do texto por 1 (um) espaço de 1,5
-linha em branco. Títulos não numerados devem ser centralizados, títulos numerados devem ser
-alinhados à esquerda. A numeração deve ser separada dos títulos ou subtítulos por um espaço de
-caractere (sem ponto).
-
-Os títulos principais devem ser alinhados pela margem superior da mancha, sendo
-apresentados sempre em nova página. Os subtítulos (seções secundárias, terciárias, etc.) devem
-aparecer na sequência do texto (sem iniciar nova página), separados do texto anterior e posterior
-por 1 (um) espaço de 1,5 linha em branco.
-
-\section{Paginação}
-
-Todas as páginas do trabalho, a \textbf{partir da folha de rosto}, devem ser contadas sequencialmente,
-mas nem todas são numeradas. A numeração é colocada a partir da \textbf{primeira página da parte textual (Introdução)}, em algarismos arábicos, fonte 10.
-
-No verso da página (páginas pares) o número de página é inserido dentro da margem
-esquerda superior. No anverso da página (páginas ímpares) o número é inserido na margem direita
-superior. Dessa forma, o número da página estará sempre na margem externa da mancha gráfica.
-
-\section{Figuras}
-
-As ilustrações devem ser colocadas após sua citação no texto, deixando-se um espaço
-(1,5) entre o texto e a figura. Após, o texto prossegue a um espaço (1,5).
-
-\textbf{Identificação}: parte superior, precedida da palavra designativa, número de ordem de
-ocorrência no texto, em algarismos arábicos, travessão e título. Espaçamento
-entrelinhas simples e fonte 12. Se o título ocupar mais de uma linha, a segunda linha
-deverá iniciar abaixo da primeira palavra do título.
-
-\textbf{Fonte (identificador do responsável)}: na parte inferior da ilustração deve-se indicar a
-fonte consultada (elemento obrigatório, mesmo que seja elaborado pelo autor).
-Apresentar a fonte consultada precedida da palavra Fonte em letra maiúscula e
-minúscula, dois pontos e a fonte, em tamanho 10 pt.
-
-Todas as ilustrações deverão ser \textbf{centralizadas} em relação a margem.
-
-Se o espaço da página não permitir, a ilustração deve aparecer na página seguinte,
-enquanto o texto prossegue normalmente no restante da página anterior.
-
-Na Fig.~\ref{fig:marca_udesc_01} pode ser observada uma figura de exemplo.
-
-\begin{figure}[!htbp]
-	\centering	
- 	\caption{Marca UDESC.}
-	\includegraphics[width=0.5\textwidth]{cor_horizontal_pdf.pdf}
-	\fonte{Elaborado pelo autor, \the\year.}	
-	\label{fig:marca_udesc_01}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.8]{figuras/processo-evolutivo.PNG}
+	\label{processo-evolutivo}
 \end{figure}
 
-\begin{figure}[!htbp]
-\flushleft 
-	\caption{Outras marcas da UDESC.}
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=0.5\textwidth]{cor_vertical_pdf.pdf}
-		\caption{Tipo de marca 01}
-	\end{subfigure}%
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=0.85\textwidth]{cor_horizontal_ass_1_pdf.pdf}
-		\caption{Marca com descrição da UDESC.}
-	\end{subfigure}
-	\fonte{Retirado de (UDESC, 2018).}	
-\end{figure}
-
-\section{Tabelas}
-
-A largura das tabelas e quadros, não poderá ultrapassar a configuração das margens esquerda
-e direita do texto. Deve-se ajustar o tamanho das tabelas e quadros ao conteúdo.
-
-Devem estar configurados em \textbf{espaçamento simples}, com \textbf{fonte 10 ou 12 pt}, e seguir o mesmo
-padrão em todo o trabalho.
-
-Com relação a formatação, a tabela apresenta os seguintes elementos: título, cabeçalho,
-conteúdo, fonte e, se necessário, nota(s) explicativa(s) (geral e/ou específica).
-
-As informações inseridas em uma tabela devem ser divididas por linhas na horizontal, porém as \textbf{bordas laterais não podem ser fechadas}.
-
-Na Tabela~\ref{tab:tabela_exemplo} pode ser observada uma tabela de exemplo.
-
-\begin{table}[!htbp]
-\centering
-\small
-\renewcommand{\arraystretch}{1.1}
-\caption{Parâmetros de comunicação entre o CCS e o ESP8266.}%
-\label{tab:tabela_exemplo}
-\begin{tabular}{C{4cm} | C{4cm} | C{4cm}}
-\toprule
- & \multicolumn{2}{c}{\textbf{Dispositivos}} \\
-\cmidrule(lr{0.5ex}){2-3}
-\multirow{-2}{*}[2pt]{\textbf{Parâmetros}}	& \textbf{CCS}	& \textbf{ESP} \\ 
-\midrule
-Endereço IP 			& 192.168.137.01 	& 192.168.137.212  		\\
-Porta de recebimento 	& 9001 				& 9001  				\\
-Porta de envio 			& - 				& 9001  				\\
-Endereço MAC 			& - 				& 60:01:94:0E:7E:20  	\\
-\bottomrule
-\end{tabular}
-\vspace{2mm}
-\fonte{Retirado de (EICHSTÄDT, 2018).}
-\end{table}
-
-
-\section{Equações e Fórmulas }
-
-As equações e as fórmulas, quando forem apresentadas na sequência normal do texto, devem ser representadas em linha.
-
-\textbf{Exemplo:}
-
-[...] o quadrado da hipotenusa é igual à soma dos quadrados dos catetos, logo: $a^2+b^2=c^2$ onde $a$ representa [...]
-
-Ao longo do texto, quando o mesmo contiver diversas fórmulas e equações, estas devem ser identificadas com números sequenciais, colocados entre parênteses, na extremidade direita da linha, junto à margem.
-
-\textbf{Exemplo:}
-\begin{equation} \label{eq:circ}
-A = \pi r^2
-\end{equation}
-\begin{equation} \label{eq:poli}
-8xz^3-3x^2+2x^2z+\frac{1}{2}y^3z - \frac{1}{3}x
-\end{equation}
-
-A equação \eqref{eq:circ} comparada com a equação \eqref{eq:poli}...
-
-
-\textbf{Exemplo:}
-
-A matriz de transformação que leva o sistema de coordenadas naturais para um sistema de componentes simétricas, utiliza o operador de deslocamento no tempo $a=e^{j\frac{2\pi}{3}}$, que produz uma rotação de $\pm \SI{120}{\degree}$ nos fasores de saída.
-\begin{equation}
-\begin{bmatrix}
-	\tilde{s}_{abc}^+ \\[0.5em]
-	\tilde{s}_{abc}^- \\[0.5em]
-	\tilde{s}_{abc}^0 
-\end{bmatrix}
-= \frac{1}{3} \cdot
-\begin{bmatrix}
-	1 & a   & a^2 	\\
-	1 & a^2 & a 	\\
-	1 & 1 	& 1 
-\end{bmatrix}
-\cdot
-\begin{bmatrix}
-	\tilde{s}_a \\[0.5em]
-	\tilde{s}_b \\[0.5em]
-	\tilde{s}_c 
-\end{bmatrix} .
-\end{equation}
-
-
-\textbf{Exemplo:}
-
-\begin{equation} \label{eq:valor_final}
-G_{i,k} = \prod_{i=A}^{k} G_i \Rightarrow 
-\begin{cases}
-\, \left| G_{i,k}  \right| =\   \displaystyle	 \prod_{i=A}^{k}  \big|\, G_i \, \big| \\[1.5em]
-\angle G_{i,k}   =  \displaystyle\sum_{i=A}^{k}  \angle\, G_i\ 
-\end{cases}.
-\end{equation}
-
-\textbf{Exemplo:}
-
-\begin{equation}
-A_p = 	\bigg(\frac{L_f\cdot I_{ef}\cdot I_{pk}}{B_{max}\cdot  J_{max}\cdot k_w}\bigg)^{1{,}14} = \SI{1}{cm^4}
-\end{equation}
+\subsection{Representação e Codificação}
+ 
+ 
+Conforme vimos anteriormente todos os AGs devem possuir uma representação para as soluções candidatas a resolução do problema, chamada de cromossomo. Sua estrutura na maioria das vezes é um vetor, porém outras estruturas também podem ser utilizadas como árvores e matrizes. As codificações, ou representações mais utilizadas são a binária e a real.
 
 
 
+Segundo \cite{linden12}, os primeiros cromossomos desenvolvidos por Holland em seus AGs utilizavam a codificação binária para representar os problemas. Apesar de esta codificação ser de fácil utilização e compreensão, em alguns casos obter a representação binária a partir do problema não é um processo muito óbvio, porém para um grande número de problemas de otimização esta representação é um processo natural. Devido a sua ineficiência em alguns problemas práticos com aplicações industriais, outras codificações surgiram como, por exemplo,a codificação com caracteres ou números reais.
+
+
+\subsubsection{Representação Binária} 
+
+Segundo \cite{mognon04} o código binário, que utiliza os símbolos 0 e 1 para representar as variáveis, é muito explorado para a codificação dos cromossomos. Na codificação binária os cromossomos são compostos por strings de zeros e uns, e os parâmetros (genes) são representados por conjuntos de bits. 
+
+Porém, para \cite{catarina03}, quando a codificação binária é utilizada em problemas com variáveis contínuas e que se espera uma boa precisão na resolução, os cromossomos se tornam longos. Consequentemente este aumento dos cromossomos resultará também em um aumento de tempo para seu processamento.
+
+
+\subsubsection{Representação Real}
+
+Uma representação alternativa em problemas de optimização com variáveis ??contínuas de valor real é a representação cromossomo de ponto flutuante. Com esta representação, não há necessidade de um mecanismo de codificação explícita. Cada membro de cada população do algoritmo genético é um vetor de ponto flutuante. Os operadores genéticos (mutação e crossover) neste caso não lidar com cadeias de bits e são definidos de uma maneira diferente. Por exemplo, a operação de mutação não altera aleatoriamente um pouco, mas aleatoriamente escolhe um número de ponto flutuante dentro de um determinado intervalo.
 
 
 
+\subsection{Criação da População Inicial}
+
+
+A inicialização básica de um algoritmo genético clássico se resume à síntese de uma população inicial, sobre a qual serão aplicadas as ações dos passos subsequentes do processo. Tipicamente se faz uso de funções aleatórias para gerar os indivíduos, sendo este um recurso simples que visa a fornecer maior diversidade, fundamental para garantir uma boa abrangência do espaço de pesquisa \cite{goldberg02}. 
+
+\subsubsection{inicialização de forma aleatória}
+
+como o próprio nome já sugere, a população é gerada de forma aleatória, sem seguir nenhum padrão ou algoritmo. Pode ser considerado um método bom para testar o funcionamento de um AG, já que as soluções obtidas são puramente consequência da evolução dessa população aleatória, e não possuem interferência das características dos métodos utilizados para gerar a população inicial;
+
+\subsubsection{inicialização heurística}
+
+neste caso a população é gerada através de alguns métodos mais diretos como, por exemplo, o algoritmo guloso, inicialização randômica ponderada, ou mesmo uma inicialização gerada por um especialista no problema, sendo está forma muito utilizada especialmente em algumas aplicações industriais.
+
+\subsection{Função de Avaliação}
+
+
+Neste componente, todos os indivíduos da população 
+sofrem um processo de avaliação, que visa a atribuição de um valor de adaptação para a solução do problema em estudo. Em conjunto com a escolha da representação, este é o ponto do algoritmo mais dependente do problema em si, pois é necessário que o AG seja capaz de responder sobre quão boa uma resposta é para o problema proposto por \cite{goldberg02}. 
+
+Várias formas de avaliação são utilizadas: em casos de otimização de funções matemáticas, o próprio valor de retorno destas funções é aplicado ao indivíduo, e em problemas com muitas restrições, funções baseadas em penalidades são mais comuns. A função de avaliação é também chamada de função objetivo. 
+
+
+\subsection{Operadores Genéticos}
+
+Após a realização da avaliação dos indivíduos e a não satisfação do critério de parada, iniciase o processo de criação de uma nova geração, com a intenção de melhorar a aptidão dos indivíduos. Este processo de criação está fundamentado na aplicação dos operadores básicos deseleção, crossover e mutação, porém outros operadores podem ser utilizados e também variações destes considerados básicos. Nesta seção explicaremos melhor cada um destes operadores e seus principais métodos.
+
+
+\subsection{Operador de Seleção}
+
+
+Para que o processo de criação de uma nova geração inicie é necessário a seleção dos indivíduos que passarão para a nova geração, ou os chamados pais que irão gerar, através do crossover (reprodução), a nova geração. O operador responsável por essa classificação é o operador de seleção.
 
 
 
-\chapter{Introdução}
+O operador de seleção assemelha-se ao processo de seleção natural, onde os indivíduos mais aptos, no caso de acordo com a função fitness , possuem uma probabilidade maior de serem selecionados. Contudo, a seleção não deve se basear apenas nos melhores indivíduos, pois estes podem não estar perto da solução ótima global, devendo também ser considerado os indivíduos com aptidão mais baixa, dando-lhes alguma chance de participar da reprodução \cite{mognon04}.
 
-\section{Introdução}
 
-\subsection{Introdução}
+\subsection{Método da Roleta}
 
-\subsubsection{Introdução}
+É um dos mais utilizados para a seleção dos indivíduos.  Neste método, cada indivíduo recebe uma porção da roleta de acordo com sua aptidão. Assim, consequentemente, os indivíduos com uma aptidão maior receberão também uma porção maior da roleta, o que aumentará sua probabilidade de ser selecionado.  Após as atribuições,  a roleta é girada e a porção sorteada corresponderá ao indivíduo selecionado, podendo ser girada quantas vezes forem necessárias de acordo com o número de indivíduos que se deseja para a próxima fase de cruzamento.
 
-\subsubsubsection{Introdução}
+Para \cite{mognon04}, este método tem a vantagem de todos os indivíduos terem a chance de serem selecionados.  Entretanto, pode sofrer o efeito de dominância se algum indivíduo possuir uma aptidão alta em relação à média dos demais. A Figura  mostra um exemplo de configuração da roleta para uma população.
 
-%\lipsum[10]
+\subsection{Método de Torneio}
 
-%\begin{figure}[!htbp]
-%	\label{fig:marca_udesc_01}
-%	\centering	
-% 	\caption{Marca UDESC.}
-%	\includegraphics[width=0.5\textwidth]{cor_horizontal_ass_1_pdf.pdf}
-%	\fonte{Elaborado pelo autor, \the\year}	
-%\end{figure}
-%
-%\lipsum[11-13]
-%
-%\begin{figure}[!htbp]
-%\flushleft 
-%	\caption{Outras marcas udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc udesc .}
-%	\begin{subfigure}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=0.5\textwidth]{cor_vertical_pdf.pdf}
-%		\caption{Tipo de marca 01}
-%	\end{subfigure}%
-%	\begin{subfigure}[b]{0.5\linewidth}
-%		\centering
-%		\includegraphics[width=0.5\textwidth]{cor_vertical_ass_pdf.pdf}
-%		\caption{Marca com descrição da UDESC.}
-%	\end{subfigure}
-%	\fonte{Elaborado pelo autor, \the\year}	
-%\end{figure}
-%
-%\lipsum[14]
+
+O primeiro passo desse método é a escolha de um subconjunto de indivíduos, que podem ser escolhidos aleatoriamente ou através de outro método, como por exemplo, o método da roleta. Esse subconjunto participará então do torneio, que consiste na competição dos indivíduos entre si considerando o seu valor de aptidão, ou seja, o vencedor será o indivíduo cujo valor de aptidão seja maior. Por fim, todos os membros do subconjunto são colocados novamente na população e o processo se repete, até que o número de indivíduos selecionados seja igual ao dos desejados \cite{mognon04}. 
+
+\subsubsection{Operador de Crossover}
+
+Após a seleção dos pais, um ou mais pares de indivíduos, o próximo passo para a geração dos novos indivíduos, os filhos, é a reprodução desses pares de indivíduos. O crossover é o operador responsável pela permutação do material genético dos pais durante o processo reprodutivo, permitindo assim que as próximas gerações, os filhos, herdem essas características. Este operador é aplicado seguindo-se uma taxa de crossover. O operador de crossover pode ser implementado de diversas maneiras, dentre elas as mais conhecidas são: crossover de um-ponto, crossover multiponto e crossover uniforme ou pontos aleatórios
+
+
+\subsubsection{Operador de Mutação}
+ 
+Este operador é necessário para que na nova geração possam ser inseridos novos materiais genéticos, ou seja, diversificar o material genético, como ocorre na natureza através de mutações ou anormalidades dos indivíduos. Por isso, este operador é aplicado levando-se em consideração a taxa de mutação , que geralmente é bem pequena. É muito simples de ser implementado: cada gene é analisado, através da probabilidade de mutação, para saber se aquela posição irá alterar seu valor ou não \cite{mognon04}.
+
+\subsection{Parâmetros Genéticos}
+
+Para que os algoritmos genéticos possam ser simulados se faz necessário a configuração de alguns parâmetros: tamanho da população, taxa de crossover e taxa de mutação. Segundo \cite{catarina03}, são esses parâmetros que afetam o desempenho dos AGs, desde um aumento do tempo de convergência, até uma convergência prematura ou mesmo a não-convergência para uma solução aceitável. No decorrer desta seção esses parâmetros serão descritos com mais detalhes, bem como suas influências
+
+
+\subsubsection{Tamanho da População}
+
+
+Este parâmetro determina o número de indivíduos que compõem cada população. Se a população for pequena, consequentemente a cobertura do espaço de busca do problema também será, o que poderá causar uma queda no desempenho do AGs. Assim, uma população grande resultará em uma cobertura maior do espaço de busca do problema, representando realmente o domínio do problema. Contudo, para se trabalhar com esta população maior, são necessários maiores recursos computacionais, ou/e um tempo maior de processamento do algoritmo \cite{catarina03}. Logo, este parâmetro deve ser ajustado de forma equilibrada, considerando os efeitos citados.
+
+\subsubsection{Taxa de Crossover}
+
+
+Representa a probabilidade com que ocorrerá o crossover dos indivíduos selecionados da população. Se a taxa for baixa, o algoritmo poderá se tornar muito lento, devido à inexistência de novos indivíduos. Quanto maior for esta taxa, mais rapidamente novas estruturas serão inseridas na população. Porém, se for muito alta poderá gerar efeitos indesejados, como a substituição da maior parte da população, o que poderá resultar na perda dos indivíduos de alta aptidão \cite{catarina03}.
+
+\subsubsection{Taxa de Mutação}
+
+
+Indica a probabilidade de ocorrer a mutação na população. Segundo Catarina \cite{catarina03}, se a taxa for baixa, ela previne que a solução fique estagnada em um valor, ou seja, a convergência prematura, e possibilita que se possa chegar em qualquer ponto do espaço de busca do problema. Se for uma taxa muito alta, tornará a busca essencialmente aleatória.
