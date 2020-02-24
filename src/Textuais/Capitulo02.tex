@@ -9,7 +9,7 @@ O Problema de Roteamento de Veículos (PRV) é descrito como o problema de plane
 
 \cite{laporte92} define o Problema Clássico de Roteamento de Veículos e mostra uma visão geral das diversas abordagens utilizadas para solucioná-lo. Estas se desdobram em algoritmos exatos, que encontram a solução ótima para o problema, e algoritmos heurísticos, que buscam uma boa solução viável, mas que não é necessariamente a solução ótima.
 
-O PRV pode ser definido da seguinte forma: Seja um grafo onde é um conjunto de vértices representando localidades (clientes ou cidades) com o depósito localizado no vértice , e é o conjunto de arcos. Cada arco , é associado a uma matriz de distâncias não negativas. Em alguns contextos, também pode ser interpretado como o custo de viagem ou o tempo de viagem. Quando é simétrico (isto é, a distância/tempo/custo de para é o mesmo de para ), é conveniente substituir por um conjunto de arcos não direcionados. Além disso, assumimos que existem veículos disponíveis no depósito, onde . Quando , é dito ser fixo. Quando e , é dito ser livre. Quando não é fixo, faz sentido associar um custo fixo ao uso do veículo. Como simplificação, \cite{laporte92} ignorou estes custos, e partiu-se do princípio de que todos os veículos são idênticos e têm a mesma capacidade . O PRV consiste em planejar um conjunto de rotas de menor custo do veículo, de tal forma que:
+O PRV pode ser definido da seguinte forma: Seja um grafo onde é um conjunto de vértices representando localidades (clientes ou cidades) com o depósito localizado no vértice , e é o conjunto de arcos. Cada arco , é associado a uma matriz de distâncias não negativas. Em alguns contextos, também pode ser interpretado como o custo de viagem ou o tempo de viagem. Quando é simétrico (isto é, a distância/tempo/custo de para é o mesmo de para ), é conveniente substituir por um conjunto de arcos não direcionados. Além disso, assumimos que existem veículos disponíveis no depósito, faz sentido associar um custo fixo ao uso do veículo. Como simplificação, \cite{laporte92} ignorou estes custos, e partiu-se do princípio de que todos os veículos são idênticos e têm a mesma capacidade . O PRV consiste em planejar um conjunto de rotas de menor custo do veículo, de tal forma que:
 
 \begin{itemize}
 \item Cada vértice em é visitado apenas uma vez e por exatamente um veículo;
@@ -28,22 +28,22 @@ O PRV pode ser definido da seguinte forma: Seja um grafo onde é um conjunto de 
 Esta lista não é exaustiva, e uma série de outras variantes interessantes são descritas na literatura.
 
 
-O Problema de Roteamento de Veículos(PRV) com Janelas de Tempo é uma extensão do PRV onde os serviços de cada cliente devem começar associados a um intervalo de tempo , chamado janela de tempo(time window) . As janelas de tempo podem ser rígidas ou flexíveis. em caso de rígida , um veiculo que chega no cliente muito cedo deve esperar até que o cliente esteja pronto para começar o serviço. Em geral , esperar antes do início de uma janela de tempo não incorre em custos. No caso de janelas de tempo flexíveis , cada janela de tempo pode ser violada incorrendo um custo penalização.As janelas de tempo podem ser unilaterais, por exemplo, o tempo máximo para o inicio de uma ação.
+O Problema de Roteamento de Veículos(PRV) com Janelas de Tempo é uma extensão do PRV onde os serviços de cada cliente devem começar associados a um intervalo de tempo , chamado janela de tempo(\textit{time window}) . As janelas de tempo podem ser rígidas ou flexíveis. em caso de rígida , um veiculo que chega no cliente muito cedo deve esperar até que o cliente esteja pronto para começar o serviço. Em geral , esperar antes do início de uma janela de tempo não incorre em custos. No caso de janelas de tempo flexíveis , cada janela de tempo pode ser violada incorrendo um custo penalização.As janelas de tempo podem ser unilaterais, por exemplo, o tempo máximo para o inicio de uma ação.
 
 
 Janelas de tempo surgem naturalmente em problemas enfrentados por organizações empresariais que trabalham com horários flexíveis . Problemas específicos com janelas de tempo rígida incluem serviço de segurança e patrulha, entregas bancárias, envios postais, recolhimento de lixo e roteamento de ônibus . Entre os problemas da janela de tempo flexíveis , problemas de entrega de encomendas constituem um exemplo importante. Neste capítulo, vamos nos concentrar principalmente nas Janelas de tempo rígidas.
 
 
 
-Na literatura existente sobre o PRVJT , o número de veículos disponíveis para servir os clientes é geralmente considerada ilimitada e a função de objectivo depende da natureza do método de solução escolhida. Para métodos exatos o objectivo é o de minimizar a distância total percorrida. Para heurísticas o principal objectivo é minimizar o número de veículos utilizados e o secundário para minimizar a distância total percorrida. Pode haver excepções a esta declaração geral.
+Na literatura existente sobre o PRVJT , o número de veículos disponíveis para servir os clientes é geralmente considerada ilimitada e a função de objectivo depende da natureza do método de solução escolhida. Para métodos exatos o objetivo é o de minimizar a distância total percorrida. Para heurísticas o principal objetivo é minimizar o número de veículos utilizados e o secundário para minimizar a distância total percorrida. Pode haver excepções a esta declaração geral.
 
 
 
-Desde que o PRV é NP-hard , por restrição, PRVJT também é NP-hard(OLIVEIRA, 2007).Na verdade até mesmo encontrar uma solução viável para o PRVJT para um número fixo de veículos é em si um problema NP-completo \cite{savelsbergh95}.Uma janela de tempo curta é uma janela que influencia a solução; ou seja, a janela é uma restrição activa , já as janelas de tempo longas são restrições que influenciam menos nos resultados.
+Desde que o PRV é NP-hard , por restrição, PRVJT também é NP-hard \cite{laporte13}.Na verdade até mesmo encontrar uma solução viável para o PRVJT para um número fixo de veículos é em si um problema NP-completo \cite{savelsbergh95}.Uma janela de tempo curta é uma janela que influencia a solução; ou seja, a janela é uma restrição ativa , já as janelas de tempo longas são restrições que influenciam menos nos resultados.
 
 
 
-No VRP a geografia é geralmente o factor importante que determina a forma das rotas. Se o número de clientes é pequena, digamos, 20, um despachante treinado pode fazer muito bem no planejamento das rotas somente olhando um mapa mostrando a localização dos clientes.No entanto, se a restrição de capacidade é obrigatória para algumas das rotas, é muito mais difícil de ignorar a situação de planejamento.Para o PRVJT quando algumas das rotas são limitados pela capacidade e outros pelas janelas de tempo, é ainda mais difícil de planejar as rotas manualmente.A interação entre o espaço e os elementos temporais das rotas pode resultar em rotas ótimas que estão longe de a imagem clássica de rotas formadas.Se o número de clientes é aumentada para um nível realista, dizem que pelo menos 100-200, torna-se muito difícil fazer as rotas manualmente. É aqui que os métodos de solução computacionais mostram as suas vantagens\cite{laporte13}.
+No VRP a geografia é geralmente o fator importante que determina a forma das rotas. Se o número de clientes é pequena, um despachante treinado pode fazer muito bem no planejamento das rotas somente olhando um mapa mostrando a localização dos clientes.No entanto, se a restrição de capacidade é obrigatória para algumas das rotas, é muito mais difícil de ignorar a situação de planejamento.Para o PRVJT quando algumas das rotas são limitadas pela capacidade e outras pelas janelas de tempo, é ainda mais difícil de planejar as rotas manualmente.A interação entre o espaço e os elementos temporais das rotas pode resultar em rotas ótimas que estão longe de a imagem clássica de rotas formadas.Se o número de clientes é aumentada para um nível realista, dizem que pelo menos 100-200, torna-se muito difícil fazer as rotas manualmente. É aqui que os métodos de solução computacionais mostram as suas vantagens\cite{laporte13}.
 
 
 Os primeiros trabalhos sobre a PRVJT foram estudo de caso orientado \cite{pullen67} e \cite{knight68}. Os métodos de solução com base em heurísticas foram relativamente simples.Os primeiros algoritmos exatos de Branch-and-Bound surgiram no início da década de 1980 \cite{laporte13} e \cite{kolen87}.Em 1987, \cite{solomon87} introduziu instâncias de benchmark envolvendo 100 clientes que foram aceitas como problemas de benchmark padrão pela maioria dos pesquisadores que trabalham no PRVJT e serviu como um catalisador para aumentar a pesquisa sobre o PRVJT.Na década seguinte, muitas heurísticas foram desenvolvidas, as buscas na sua maioria locais, mas também as primeiras metaheurísticas (busca tabu e algoritmos genéticos).Vários algoritmos exatos baseados em metodologias complexas, como relaxamento de Lagrange e de geração de colunas, também foram concebidos.
@@ -59,7 +59,7 @@ O PRVJT é definido no gráfico dirigido G = (V,A) em que o depósito é represe
 
 
 
-Note que um arco (i,j) $\in$ A pode ser omitida devido a considerações temporais, se $ a_i + s_i + t_{ij} > b_j$ ou limitações de capacidade $ q_i +q_j $ ou por outros factores.Finalmente, vamos falar que quando os veículos são autorizados a permanecer no depósito, especialmente no caso em que o principal objectivo consiste em minimizar o número de veículos usados, o arco (0,n +1) com $c_{0,n+1 = t_{0,n+1 = 0}} $ deve ser adicionado ao conjunto de arcos A.
+Note que um arco (i,j) $\in$ A pode ser omitida devido a considerações temporais, se $ a_i + s_i + t_{ij} > b_j$ ou limitações de capacidade $ q_i +q_j $ ou por outros fatores.Finalmente, vamos falar que quando os veículos são autorizados a permanecer no depósito, especialmente no caso em que o principal objetivo consiste em minimizar o número de veículos usados, o arco (0,n +1) com $c_{0,n+1 = t_{0,n+1 = 0}} $ deve ser adicionado ao conjunto de arcos A.
 
 
 
@@ -70,23 +70,23 @@ O PRVJT pode ser formulado como o seguinte modelo de fluxo de rede de multi-prod
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.8]{figuras/math1.PNG}
+\includegraphics[scale=0.7]{figuras/math1.PNG}
 \label{math1}
 \end{figure}
 
 
 
-função objetivo (3.1) visa minimizar o custo total. As restrições (3.2) garantir que cada cliente é atribuído a exatamente um percurso.Em seguida, as restrições (3.3) - (3.5) definir um caminho da source-to-sink no G para cada k veículo.Além disso, as restrições (3.6) - (3.7) e a viabilidade do cronograma (3.8) garantia em relação à janelas de tempo e capacidade do veículo, respectivamente. Note-se que, para um determinado k, o valor de Ti k não tem sentido sempre ao cliente que não é visitado por veículo k.Finalmente, (revisar essa parte) o arco-flow variáveis estao Sujeitos a requisitos binários (3.9).
+função objetivo (3.1) visa minimizar o custo total. As restrições (3.2) garantem que cada cliente é atribuído a exatamente um percurso.Em seguida, as restrições (3.3) - (3.5) definem um caminho da \textit{source-to-sink} no G para cada k veículo.Além disso, as restrições (3.6) - (3.7) e a viabilidade do cronograma (3.8) garantia em relação à janelas de tempo e capacidade do veículo, respetivamente. Finalmente, os arcos de fluxo estão sujeitos a requisitos binários (3.9).
 
 Modelo (3.1) - (3.9) é não linear devido as restrições de (3.6) que pode, no entanto, ser linearizada como: 
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.8]{figuras/math6.PNG}
+\includegraphics[scale=0.7]{figuras/math6.PNG}
 \label{math6}
 \end{figure}
 
-Onde $ M_{ij}$ , (i, j ) $\in$ A, são grandes constantes que podem ser definidas para max $ \{b_i + s_i +t_{ij} - a_j , 0 \}$
+Onde $ M_{ij}$ , (i, j ) $\in$ A, são grandes constantes que podem ser definidas para  $ max \{b_i + s_i +t_{ij} - a_j , 0 \}$
 
 
 
@@ -94,7 +94,7 @@ O relaxamento linear do modelo (3.1) - (3.5), (3.6a), (3.7) - (3.9) prevê, em g
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.8]{figuras/math2.PNG}
+\includegraphics[scale=0.7]{figuras/math2.PNG}
 \label{math2}
 \end{figure}
 
@@ -104,7 +104,7 @@ função objetivo (3.10) procura minimizar o custo total. Definir restrições d
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.8]{figuras/math3.PNG}
+\includegraphics[scale=0.7]{figuras/math3.PNG}
 \label{math3}
 \end{figure}
  
@@ -113,15 +113,15 @@ O relaxamento linear do modelo (3.10) - (3.12) produz uma melhor limites mais ba
 
 Vários outros modelos foram propostos para a PRVJT. Em particular, as formulações de dois índices foram usados em conjunto com algoritmos Branch-and-CUT . Apresenta-se uma tal formulação abaixo, que envolve um tipo de variáveis: para cada arco (i, j) $\in$ A, existe um binário variável $x_{ij}$ que é igual a 1 se o arco (i, j) é utilizada em solução e 0 se não for usado. Denote por P o conjunto de caminhos (não necessariamente a partir da origem) em G que não respeitam as restrições de janela de tempo e por A (p) o conjunto de arcos no caminho p$\in$ P. Deixe r(S) o número mínimo de veículos necessários para servir cada subconjunto de clientes S de acordo com suas demandas. Este número é, em geral, substituídos por $[q(S)/Q]$ em $q(S)=\sum\limits_{i \in S}q_i $. A formulação de duas índice corresponde à 
 
-\begin{figure}[ht!]
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.8]{figuras/math4.PNG}
+\includegraphics[scale=0.7]{figuras/math4.PNG}
 \label{math4}
 \end{figure}
 
-\begin{figure}[ht!]
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.7]{figuras/math3.PNG}
+\includegraphics[scale=0.7]{figuras/math5.PNG}
 \label{math5}
 \end{figure}
 
@@ -129,3 +129,45 @@ função objetivo (3.14) minimiza o custo total para servir os clientes. Restri�
 
  A formulação de dois índice (3.14) - (3.19) contém um número exponencial de restrições (3.17) e (3.18). Para os casos de tamanhos práticos , eles precisam ser gerados dinamicamente como no algoritmo de plano de corte. desigualdades válidas adicionais também podem ser considerados para apertar o relaxamento linear deste modelo
  
+
+
+\subsection{Conjunto de Problemas Testes de Solomon}
+
+ O conjunto de problemas teste proposto por Solomon em 1987 \cite{solomon87}, baseado  em  dados  de  alguns  problemas  usados  por  Christofides  et  al.  (1979)  para  o  problema de roteamento padrão, trata-se de diferentes classes de instâncias, cada qual com características   geográficas   e   de   restrições   características.   Os   consumidores   estão   distribuídos em um plano XY de dimensões 100x100.  
+
+
+
+As instâncias são divididas em 6 grupos denominados R1, R2, C1, C2, RC1 e RC2. Cada classe contém entre 8 e 12 instâncias. Os grupos R1 e R2, possuem uma disposição geográfica dos clientes de forma aleatória, já nos grupos C1 e C2, a disposição é na forma de  agrupamentos,  e  nos  grupos  RC1  e  RC2  são  tipos  mistos  (parte  em  agrupamentos  e  parte  aleatória).  Nas  classes  R1,  C1  e  RC1,  as  janelas  de  tempo  e  o  horizonte  total  são  curtos, diminuindo assim o número de consumidores por rota. Já as classes R2, C2 e RC2, possuem  um  longo  horizonte  total  fazendo  com  que  as  rotas  tenham  mais  consumidores  viáveis.   
+
+
+Cada instância tem 100 consumidores, mas pode-se considerar apenas os primeiros 25 ou 50 consumidores dependendo do caso. 
+
+
+
+No caso do uso das instâncias de Solomon, nos problemas de roteamento dinâmico, adaptações devem ocorrer para que não se tenha  conhecimento  de  todos  os  consumidores  no início do roteamento, o que tornaria o problema estático.  
+
+
+
+
+%As  figuras  abaixo,  representam  os  três  tipos  de  classe  C  (Fig.2.4),  R  (Fig.2.5)  e    RC(Fig.2.6): 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.7]{figuras/solo1.PNG}
+	\label{solo1}
+	\caption{Problemas classe C}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.7]{figuras/solo2.PNG}
+	\label{solo2}
+	\caption{Problemas classe R}
+\end{figure}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=0.7]{figuras/solo3.PNG}
+	\label{solo3}
+	\caption{Problemas classe RC}
+\end{figure}

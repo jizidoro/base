@@ -3,7 +3,7 @@
 
 \section{Algoritmos Genéticos}
 
-Na década de 1960 John Holland inventou os Algoritmos Genéticos (AG) e os desenvolveu nos anos de 1960 e 1970 juntamente com seus alunos e colegas da Universidade de Michigan. E foi em 1975 através do lançamento de seu livro "Adaptation in Natural and Artificial Systems(1), que Holland apresentou os AGs à comunidade (5). Para Melanie (5), o objetivo original de Holland não era projetar algoritmos para resolver problemas específicos, mas sim estudar o fenômeno da evolução como ocorre na natureza, e desenvolver maneiras para que os mecanismos de adaptação natural pudessem ser importados para os sistemas computacionais.
+Na década de 1960 John Holland inventou os Algoritmos Genéticos (AG) e os desenvolveu nos anos de 1960 e 1970 juntamente com seus alunos e colegas da Universidade de Michigan. E foi em 1975 através do lançamento de seu livro \textit{"Adaptation in Natural and Artificial Systems"} , Que \cite{holland75} apresentou os AGs à comunidade . O objetivo original de Holland não era projetar algoritmos para resolver problemas específicos, mas sim estudar o fenômeno da evolução como ocorre na natureza, e desenvolver maneiras para que os mecanismos de adaptação natural pudessem ser importados para os sistemas computacionais.
 
 Segundo \cite{linden12}, os algoritmos genéticos desenvolvidos inicialmente por Holland eram simples, mas conseguiam resultados satisfatórios para problemas considerados difíceis naquela época. Foi a partir de 1980 que os AGs começaram a evoluir, através da introdução de novas inovações e mecanismos cada vez mais elaborados, que tinham a intenção e necessidade de resolver, mesmo que aproximadamente, problemas práticos.
 
@@ -39,6 +39,7 @@ Em geral os AG também devem seguir um conjunto de passos, indicados na Figura a
 	\centering
 	\includegraphics[scale=0.8]{figuras/processo-evolutivo.PNG}
 	\label{processo-evolutivo}
+	\caption{Passos da execução de um AG}
 \end{figure}
 
 \subsection{Representação e Codificação}
@@ -60,7 +61,7 @@ Porém, para \cite{catarina03}, quando a codificação binária é utilizada em 
 
 \subsubsection{Representação Real}
 
-Uma representação alternativa em problemas de optimização com variáveis ??contínuas de valor real é a representação cromossomo de ponto flutuante. Com esta representação, não há necessidade de um mecanismo de codificação explícita. Cada membro de cada população do algoritmo genético é um vetor de ponto flutuante. Os operadores genéticos (mutação e crossover) neste caso não lidar com cadeias de bits e são definidos de uma maneira diferente. Por exemplo, a operação de mutação não altera aleatoriamente um pouco, mas aleatoriamente escolhe um número de ponto flutuante dentro de um determinado intervalo.
+Uma representação alternativa em problemas de optimização com variáveis contínuas de valor real é a representação cromossomo de ponto flutuante. Com esta representação, não há necessidade de um mecanismo de codificação explícita. Cada membro de cada população do algoritmo genético é um vetor de ponto flutuante. Os operadores genéticos (mutação e \textit{crossover}) neste caso não lidar com cadeias de bits e são definidos de uma maneira diferente. Por exemplo, a operação de mutação não altera aleatoriamente um pouco, mas aleatoriamente escolhe um número de ponto flutuante dentro de um determinado intervalo.
 
 
 
@@ -80,21 +81,20 @@ neste caso a população é gerada através de alguns métodos mais diretos como
 \subsection{Função de Avaliação}
 
 
-Neste componente, todos os indivíduos da população 
-sofrem um processo de avaliação, que visa a atribuição de um valor de adaptação para a solução do problema em estudo. Em conjunto com a escolha da representação, este é o ponto do algoritmo mais dependente do problema em si, pois é necessário que o AG seja capaz de responder sobre quão boa uma resposta é para o problema proposto por \cite{goldberg02}. 
+Neste componente, todos os indivíduos da população sofrem um processo de avaliação, que visa a atribuição de um valor de adaptação para a solução do problema em estudo. Em conjunto com a escolha da representação, este é o ponto do algoritmo mais dependente do problema em si, pois é necessário que o AG seja capaz de responder sobre quão boa uma resposta é para o problema proposto por \cite{goldberg02}. 
 
 Várias formas de avaliação são utilizadas: em casos de otimização de funções matemáticas, o próprio valor de retorno destas funções é aplicado ao indivíduo, e em problemas com muitas restrições, funções baseadas em penalidades são mais comuns. A função de avaliação é também chamada de função objetivo. 
 
 
 \subsection{Operadores Genéticos}
 
-Após a realização da avaliação dos indivíduos e a não satisfação do critério de parada, iniciase o processo de criação de uma nova geração, com a intenção de melhorar a aptidão dos indivíduos. Este processo de criação está fundamentado na aplicação dos operadores básicos deseleção, crossover e mutação, porém outros operadores podem ser utilizados e também variações destes considerados básicos. Nesta seção explicaremos melhor cada um destes operadores e seus principais métodos.
+Após a realização da avaliação dos indivíduos e a não satisfação do critério de parada, inicia-se o processo de criação de uma nova geração, com a intenção de melhorar a aptidão dos indivíduos. Este processo de criação está fundamentado na aplicação dos operadores básicos de seleção, crossover e mutação, porém outros operadores podem ser utilizados e também variações destes considerados básicos. Nesta seção explicaremos melhor cada um dos operadores e seus principais métodos.
 
 
 \subsection{Operador de Seleção}
 
 
-Para que o processo de criação de uma nova geração inicie é necessário a seleção dos indivíduos que passarão para a nova geração, ou os chamados pais que irão gerar, através do crossover (reprodução), a nova geração. O operador responsável por essa classificação é o operador de seleção.
+Para que o processo de criação de uma nova geração inicie é necessário a seleção dos indivíduos que passarão para a nova geração, ou os chamados pais que irão gerar, através do \textit{crossover} ,a nova geração. O operador responsável por essa classificação é o operador de seleção.
 
 
 
@@ -105,16 +105,17 @@ O operador de seleção assemelha-se ao processo de seleção natural, onde os i
 
 É um dos mais utilizados para a seleção dos indivíduos.  Neste método, cada indivíduo recebe uma porção da roleta de acordo com sua aptidão. Assim, consequentemente, os indivíduos com uma aptidão maior receberão também uma porção maior da roleta, o que aumentará sua probabilidade de ser selecionado.  Após as atribuições,  a roleta é girada e a porção sorteada corresponderá ao indivíduo selecionado, podendo ser girada quantas vezes forem necessárias de acordo com o número de indivíduos que se deseja para a próxima fase de cruzamento.
 
-Para \cite{mognon04}, este método tem a vantagem de todos os indivíduos terem a chance de serem selecionados.  Entretanto, pode sofrer o efeito de dominância se algum indivíduo possuir uma aptidão alta em relação à média dos demais. A Figura  mostra um exemplo de configuração da roleta para uma população.
+Para \cite{mognon04}, este método tem a vantagem de todos os indivíduos terem a chance de serem selecionados.  Entretanto, pode sofrer o efeito de dominância se algum indivíduo possuir uma aptidão alta em relação à média dos demais. 
+
 
 \subsection{Método de Torneio}
 
 
 O primeiro passo desse método é a escolha de um subconjunto de indivíduos, que podem ser escolhidos aleatoriamente ou através de outro método, como por exemplo, o método da roleta. Esse subconjunto participará então do torneio, que consiste na competição dos indivíduos entre si considerando o seu valor de aptidão, ou seja, o vencedor será o indivíduo cujo valor de aptidão seja maior. Por fim, todos os membros do subconjunto são colocados novamente na população e o processo se repete, até que o número de indivíduos selecionados seja igual ao dos desejados \cite{mognon04}. 
 
-\subsubsection{Operador de Crossover}
+\subsubsection{Operador de \textit{Crossover}}
 
-Após a seleção dos pais, um ou mais pares de indivíduos, o próximo passo para a geração dos novos indivíduos, os filhos, é a reprodução desses pares de indivíduos. O crossover é o operador responsável pela permutação do material genético dos pais durante o processo reprodutivo, permitindo assim que as próximas gerações, os filhos, herdem essas características. Este operador é aplicado seguindo-se uma taxa de crossover. O operador de crossover pode ser implementado de diversas maneiras, dentre elas as mais conhecidas são: crossover de um-ponto, crossover multiponto e crossover uniforme ou pontos aleatórios
+Após a seleção dos pais, um ou mais pares de indivíduos, o próximo passo para a geração dos novos indivíduos, os filhos, é a reprodução desses pares de indivíduos. O \textit{crossover} é o operador responsável pela permutação do material genético dos pais durante o processo reprodutivo, permitindo assim que as próximas gerações, os filhos, herdem essas características. Este operador é aplicado seguindo-se uma taxa de crossover. O operador de \textit{crossover} pode ser implementado de diversas maneiras, dentre elas as mais conhecidas são: \textit{crossover} de um-ponto, \textit{crossover} multiponto e \textit{crossover} uniforme ou pontos aleatórios
 
 
 \subsubsection{Operador de Mutação}
@@ -123,7 +124,7 @@ Este operador é necessário para que na nova geração possam ser inseridos nov
 
 \subsection{Parâmetros Genéticos}
 
-Para que os algoritmos genéticos possam ser simulados se faz necessário a configuração de alguns parâmetros: tamanho da população, taxa de crossover e taxa de mutação. Segundo \cite{catarina03}, são esses parâmetros que afetam o desempenho dos AGs, desde um aumento do tempo de convergência, até uma convergência prematura ou mesmo a não-convergência para uma solução aceitável. No decorrer desta seção esses parâmetros serão descritos com mais detalhes, bem como suas influências
+Para que os algoritmos genéticos possam ser simulados se faz necessário a configuração de alguns parâmetros: tamanho da população, taxa de \textit{crossover} e taxa de mutação. Segundo \cite{catarina03}, são esses parâmetros que afetam o desempenho dos AGs, desde um aumento do tempo de convergência, até uma convergência prematura ou mesmo a não-convergência para uma solução aceitável.
 
 
 \subsubsection{Tamanho da População}
@@ -139,4 +140,4 @@ Representa a probabilidade com que ocorrerá o crossover dos indivíduos selecio
 \subsubsection{Taxa de Mutação}
 
 
-Indica a probabilidade de ocorrer a mutação na população. Segundo Catarina \cite{catarina03}, se a taxa for baixa, ela previne que a solução fique estagnada em um valor, ou seja, a convergência prematura, e possibilita que se possa chegar em qualquer ponto do espaço de busca do problema. Se for uma taxa muito alta, tornará a busca essencialmente aleatória.
+Indica a probabilidade de ocorrer a mutação na população. Segundo \cite{catarina03}, se a taxa for baixa, ela previne que a solução fique estagnada em um valor, ou seja, a convergência prematura, e possibilita que se possa chegar em qualquer ponto do espaço de busca do problema. Se for uma taxa muito alta, tornará a busca essencialmente aleatória.
